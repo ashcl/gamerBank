@@ -27,10 +27,10 @@ public class BankTest {
         this.target = this.client.target("http://localhost:8080/gamerBankWeb/resources/bank");
     }
 
-    @Test
+    /*@Test
     public void testThatMaxLimitIsInPlace() {
-        /*Form form = new Form();
-        form.param("hours", "2147483647");*/
+        *//*Form form = new Form();
+        form.param("hours", "2147483647");*//*
         Response legalResponse = this.target.path("/updateTime")
                 .queryParam("hours", 2147483647)
                 .request(MediaType.TEXT_PLAIN)
@@ -60,6 +60,6 @@ public class BankTest {
                 .get(String.class);
         System.out.println(illegalResponse);
         assertTrue(illegalResponse.equalsIgnoreCase("That is not a legal number. It's too low."));
-    }
+    }*/
 
 }

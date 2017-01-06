@@ -23,12 +23,18 @@
 <script>
     function validateHours() {
         var hours = document.forms["hoursSubmitForm"]["hours"].value;
-
-        if (hours > 0x7FFFFFFF) {
-            alert("Yo, I know for a fact you didn't earn that many hours.\nTry a lower, realistic number, eh?");
-            return false;
-        } else if (hours < -0x80000000) {
-            alert("Sheesh! That must have been one major screwup!\nHowever, I don't think that is quite fair.\nTry a number a bit closer to 0.");
+        hours = parseFloat(hours);
+        if(hours % 1 === 0) {
+            if (hours > 0x7FFFFFFF) {
+                alert("Yo, I know for a fact you didn't earn that many hours.\nTry a lower, realistic number, eh?");
+                return false;
+            } else if (hours < -0x80000000) {
+                alert("Sheesh! That must have been one major screwup!\nHowever, I don't think that is quite fair.\nTry a number a bit closer to 0.");
+                return false;
+            }
+            document.forms["hoursSubmitForm"]["hours"].value = parseFloat(hours);
+        }else{
+            alert("Alright, smarty.\nYou're supposed to enter numbers, not...whatever that was.\nTry again.");
             return false;
         }
     }
