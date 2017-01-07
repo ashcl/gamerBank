@@ -27,22 +27,15 @@ public class BankService {
     @GET
     @Path("/updateTime")
     public Response addHours(@QueryParam("hours") double hours) {
-        Response.ResponseBuilder builder = Response.seeOther(URI.create("http://localhost:8080/gamerBankWeb/"));
-//        String returnString = timeBank.getFormattedBalance(hours + timeBank.getBalance());
+        Response.ResponseBuilder builder = Response.seeOther(URI.create("http://192.168.1.25:8080/gamerBankWeb/"));
 
-        if (hours > Integer.MAX_VALUE) {
-//            returnString = "That is not a legal number. It's too high.";
-        } else if (hours < Integer.MIN_VALUE) {
-//            returnString = "That is not a legal number. It's too low.";
-        } else {
+        if (hours < maxInputHours && hours > minInputHours) {
             try {
                 timeBank.storeBalance(hours);
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
-
-//        builder.entity(returnString);
         return builder.build();
     }
 

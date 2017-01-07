@@ -1,4 +1,4 @@
-<%@ page import="com.bytonsoftware.view.BankUtil" %><%--
+<%--
   Created by IntelliJ IDEA.
   User: clash
   Date: 1/4/17
@@ -6,16 +6,19 @@
   To change this template use File | Settings | File Templates.
 --%>
 
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" import="com.bytonsoftware.view.BankUtil" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="req" value="${pageContext.request}"/>
+<c:set var="baseURL" value="${req.scheme}://${req.serverName}:${req.serverPort}${req.contextPath}"/>
 <html>
 <head>
     <title>Game Bank</title>
 </head>
 <body>
 
-<div id="balance"><%= BankUtil.obtainBalance()%>
+<div id="balance"><%= BankUtil.obtainBalance()%><br>
 </div>
-<form name="hoursSubmitForm" action="http://localhost:8080/gamerBankWeb/resources/bank/updateTime"
+<form name="hoursSubmitForm" action="${baseURL}/resources/bank/updateTime"
       onsubmit="return validateHours()">
     <input type="text" name="hours" autocomplete="off" required> <input type="submit" value="Add Time">
 </form>
