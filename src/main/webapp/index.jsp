@@ -26,18 +26,16 @@
 <script>
     function validateHours() {
         var hours = document.forms["hoursSubmitForm"]["hours"].value;
-        hours = parseFloat(hours);
-        if(hours % 1 === 0) {
-            if (hours > 0x7FFFFFFF) {
+        if (typeof(hours) === 'number') {
+            if (hours > 200) {
                 alert("Yo, I know for a fact you didn't earn that many hours.\nTry a lower, realistic number, eh?");
                 return false;
-            } else if (hours < -0x80000000) {
+            } else if (hours < -200) {
                 alert("Sheesh! That must have been one major screwup!\nHowever, I don't think that is quite fair.\nTry a number a bit closer to 0.");
                 return false;
             }
-            document.forms["hoursSubmitForm"]["hours"].value = parseFloat(hours);
         }else{
-            alert("Alright, smarty.\nYou're supposed to enter numbers, not...whatever that was.\nTry again.");
+            alert("Alright, what happened?\nWhatever that was, it wasn't a number.\nTry again.");
             return false;
         }
     }

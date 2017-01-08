@@ -19,7 +19,7 @@ public class TimeBank {
         minutes = minutes.setScale(0, BigDecimal.ROUND_HALF_UP);
         long finalMinutes = minutes.longValue();
 
-        return String.format("Balance: %d hrs., %d min.", wholeNum, finalMinutes);
+        return String.format("Time Available: %d hrs., %d min.", wholeNum, finalMinutes);
     }
 
     public void storeBalance(double hours) throws IOException {
