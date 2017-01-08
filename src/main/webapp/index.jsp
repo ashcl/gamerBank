@@ -26,6 +26,7 @@
 <script>
     function validateHours() {
         var hours = document.forms["hoursSubmitForm"]["hours"].value;
+        hours = hours - 0;
         if (typeof(hours) === 'number') {
             if (hours > 200) {
                 alert("Yo, I know for a fact you didn't earn that many hours.\nTry a lower, realistic number, eh?");
