@@ -12,7 +12,7 @@ public class BankUtil {
 
     public static String obtainBalance() {
         Client client = ClientBuilder.newClient();
-        WebTarget target = client.target("http://192.168.1.25:8080/gamerBankWeb/resources/bank");
+        WebTarget target = client.target("http://192.168.1.11:8080/gamerBankWeb/resources/bank");
         String value = target.request(MediaType.TEXT_PLAIN).get(String.class);
         return value;
     }

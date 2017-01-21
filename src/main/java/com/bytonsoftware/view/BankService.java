@@ -27,11 +27,12 @@ public class BankService {
     @GET
     @Path("/updateTime")
     public Response addHours(@QueryParam("hours") double hours) {
-        Response.ResponseBuilder builder = Response.seeOther(URI.create("http://192.168.1.25:8080/gamerBankWeb/"));
+        Response.ResponseBuilder builder = Response.seeOther(URI.create("http://192.168.1.11:8080/gamerBankWeb/"));
 
         if (hours < maxInputHours && hours > minInputHours) {
             try {
                 timeBank.storeBalance(hours);
+                timeBank.storeLog(hours);
             } catch (IOException e) {
                 e.printStackTrace();
             }
