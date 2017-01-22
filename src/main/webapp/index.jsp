@@ -24,6 +24,11 @@
     JSONArray log = bank.getLog();
     JSONObject logEntry;
 %>
+
+<div id="title">
+    <b>Gamer's Bank</b>
+</div>
+
 <div id="balance"><%= BankUtil.obtainBalance()%><br>
 </div>
 <form name="hoursSubmitForm" action="${baseURL}/resources/bank/updateTime"
