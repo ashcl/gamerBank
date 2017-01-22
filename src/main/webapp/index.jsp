@@ -26,7 +26,7 @@
 %>
 
 <div id="title">
-    <b>Gamer's Bank Web</b>
+    <b>Gamer's Bank Web via SCM</b>
 </div>
 
 <div id="balance"><%= BankUtil.obtainBalance()%><br>
